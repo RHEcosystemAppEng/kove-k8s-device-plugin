@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
+	"path"
+
 	"github.com/go-kit/kit/log"
 	"github.com/oklog/run"
 	"golang.org/x/net/context"
 	"k8s.io/kubelet/pkg/apis/deviceplugin/v1beta1"
-	"os"
-	"path"
 )
 
 const (
@@ -21,6 +22,15 @@ func main() {
 		os.Exit(1)
 	}
 }
+
+// func generateValue() string {
+// 	cmd, err := exec.Command("/bin/sh", "kove-pool-capacity-utility/helloworld.sh").Output()
+// 	if err != nil {
+// 		fmt.Printf("error %s", err)
+// 	}
+// 	output := string(cmd)
+// 	return output
+// }
 
 func startPlugin() error {
 
@@ -37,6 +47,8 @@ func startPlugin() error {
 	{
 		d := new(DeviceSpec)
 		d.Name = path.Join(*domain, "/memory")
+		d.Count = 333
+		// d.Value = generateValue()
 		ctx, cancel := context.WithCancel(context.Background())
 		gp := NewGenericPlugin(d, *pluginPath, log.With(logger, "resource", d.Name))
 		// Start the generic device plugin server.
@@ -46,6 +58,7 @@ func startPlugin() error {
 		}, func(error) {
 			cancel()
 		})
+		fmt.Printf("count %d", d.Count)
 	}
 	return g.Run()
 }
