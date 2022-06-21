@@ -4,15 +4,16 @@ import (
 	"context"
 	"encoding/base64"
 	"fmt"
+	"net"
+	"os"
+	"path/filepath"
+	"time"
+
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/oklog/run"
 	"google.golang.org/grpc"
 	"k8s.io/kubelet/pkg/apis/deviceplugin/v1beta1"
-	"net"
-	"os"
-	"path/filepath"
-	"time"
 )
 
 const (

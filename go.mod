@@ -4,7 +4,6 @@ go 1.17
 
 require (
 	github.com/go-kit/kit v0.12.0
-	github.com/go-kit/log v0.2.1
 	github.com/oklog/run v1.1.0
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd
 	google.golang.org/grpc v1.47.0
@@ -12,6 +11,7 @@ require (
 )
 
 require (
+	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect

@@ -12,7 +12,7 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
- vendor/
- bin/
+vendor/*
+bin/*
  
 /go.sum
