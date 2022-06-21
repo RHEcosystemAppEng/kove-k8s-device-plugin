@@ -21,7 +21,7 @@ spec:
       - operator: "Exists"
         effect: "NoSchedule"
       containers:
-      - image: quay.io/ishishov/device-plugin:latest
+      - image: quay.io/ecosystem-appeng/kove-k8s-device-plugin
         imagePullPolicy: Always
         name: kove-k8s-device-plugin
         resources:
